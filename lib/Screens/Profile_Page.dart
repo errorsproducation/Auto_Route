@@ -2,21 +2,30 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+
+import '../Model/Model.dart';
 @RoutePage()
 class Profile extends StatelessWidget {
-   String message=' ';
+  final  Model model;
 
 
-   Profile({@PathParam('message') required this.message});
+   Profile({required this.model});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: InkWell(
-        onTap: () {
-          context.router.pushNamed('/home');
-        },
-        child: Text("$message")),),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment:  CrossAxisAlignment.center,
+          children: [
+            Text(" Name        : ${model.NAME}"),
+            Text(" Place       : ${model.PLACE}"),
+            Text("Phone Number : ${model.PHONE_NUMBER}"),
+            Text("Degree       : ${model.DEGREE}"),
+          ],
+        ),
+      ),
     );
   }
 }
