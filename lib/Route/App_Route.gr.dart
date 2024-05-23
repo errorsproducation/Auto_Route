@@ -22,9 +22,10 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     Profile_Page.name: (routeData) {
+      final args = routeData.argsAs<SecondScreenRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: Profile(),
+        child: Profile(message: args.message,),
       );
     },
   };
@@ -32,6 +33,8 @@ abstract class _$AppRouter extends RootStackRouter {
 
 /// generated route for
 /// [Home_Page]
+///
+///
 class Home_Page extends PageRouteInfo<void> {
   const Home_Page({List<PageRouteInfo>? children})
       : super(
@@ -46,14 +49,23 @@ class Home_Page extends PageRouteInfo<void> {
 
 /// generated route for
 /// [Profile_Page]
-class Profile_Page extends PageRouteInfo<void> {
-  const Profile_Page({List<PageRouteInfo>? children})
+class Profile_Page extends PageRouteInfo<SecondScreenRouteArgs> {
+
+
+   Profile_Page({List<PageRouteInfo>? children,required String message})
       : super(
           Profile_Page.name,
           initialChildren: children,
+          args:  SecondScreenRouteArgs(message: message),
         );
 
   static const String name = 'Profile_Page';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+class SecondScreenRouteArgs {
+  final String message;
+
+   const SecondScreenRouteArgs({required this.message});
 }

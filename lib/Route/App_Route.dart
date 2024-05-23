@@ -17,7 +17,7 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
     // HomeScreen is generated as HomeRoute because
     // of the replaceInRouteName property
-    AutoRoute(page: Home_Page.page,path: '/home',initial: true),
-    AutoRoute(page: Profile_Page.page,path: '/profile'),
+    AutoRoute(page: Home_Page.page,path: '/home',initial: true,),
+    AutoRoute(page: Profile_Page.page,path: '/profile',initial: false,),
   ];
 }
